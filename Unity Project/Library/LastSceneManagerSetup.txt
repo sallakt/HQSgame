@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Level/Level1.unity
+- path: D:/School work/Games - Spring 2018/Unity Project/Assets/Level/Level1.unity
   isLoaded: 1
   isActive: 1
