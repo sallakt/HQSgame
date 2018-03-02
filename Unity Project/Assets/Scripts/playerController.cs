@@ -15,14 +15,17 @@ public class playerController : MonoBehaviour {
     public Transform gunTip;
     public Transform gunTipCrouching;
     public GameObject bullet;
+    //public GameObject popMess;
     float fireRate = 0.5f; //fire per 0.5s
     float nextFire = 0; //fire immediately;
 
     Rigidbody2D myBody;
     Animator myAni;
+    public List<Collider2D> touchingCollider = new List<Collider2D>();
+
 
     // Use this for initialization
-	void Start () {
+    void Start () {
         myBody = GetComponent<Rigidbody2D> ();
         myAni = GetComponent<Animator>();
         facingRight = true;
@@ -35,7 +38,11 @@ public class playerController : MonoBehaviour {
         myAni.SetFloat("Speed", Mathf.Abs(move));
         myAni.SetBool("Grounded", grounded);
         myAni.SetBool("Crouch", crouching);
-        myBody.velocity = new Vector2(move * maxSpeed, myBody.velocity.y);
+        if (!crouching)
+        {
+            myBody.velocity = new Vector2(move * maxSpeed, myBody.velocity.y);
+        }
+        
         if (move > 0 && !facingRight)
         {
             flip();
@@ -61,7 +68,15 @@ public class playerController : MonoBehaviour {
         {
             fireBullet();
         }
-	}
+        //interact with the switch
+        if (Input.GetKeyDown(KeyCode.E) && touchingCollider.Count > 0)
+        {
+            //touchingCollider.ForEach(n => n.SendMessage("Use", SendMessageOptions.DontRequireReceiver));
+			foreach (Collider2D n in touchingCollider) {
+				n.gameObject.SendMessage ("Use", SendMessageOptions.DontRequireReceiver);
+			}
+        }
+    }
 
     void flip() {
         facingRight = !facingRight;
@@ -71,11 +86,40 @@ public class playerController : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.tag == "Ground")
+        //moving along with moving platform
+        if (other.gameObject.tag == "Moving Platform")
+        {
+            grounded = true;
+            transform.parent = other.transform;
+        }
+        if (other.gameObject.tag == "Ground")
         {
             grounded = true;
         }
     }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+
+        //stop moving with the platform when not on it
+        if (other.gameObject.tag == "Moving Platform")
+        {
+            transform.parent = null;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        touchingCollider.Add(col);
+        //popMess.SetActive(true);
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        touchingCollider.Remove(col);
+        //popMess.SetActive(false);
+    }
+
 
     //Fire function
     void fireBullet() {
