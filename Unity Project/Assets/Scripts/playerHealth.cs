@@ -15,8 +15,8 @@ public class playerHealth : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         currentHealth = maxHealth;
-        //playerHealthSlider.maxValue = maxHealth;
-        //playerHealthSlider.value = maxHealth;
+        playerHealthSlider.maxValue = maxHealth;
+        playerHealthSlider.value = maxHealth;
 	}
 	
 	// Update is called once per frame

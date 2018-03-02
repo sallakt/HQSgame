@@ -6995,6 +6995,11 @@ Prefab:
       propertyPath: maxSpeed
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114808368512318778, guid: f622cb91d5a20314b9a088a213be254f,
+        type: 2}
+      propertyPath: currentHealth
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f622cb91d5a20314b9a088a213be254f, type: 2}
   m_IsPrefabParent: 0
