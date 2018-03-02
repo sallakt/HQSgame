@@ -754,7 +754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
-  currentHealth: 0
+  currentHealth: 20
   bloodEffect: {fileID: 1393126457744536, guid: 96e1e652c8a252941923914eadd42c51,
     type: 2}
   playerHealthSlider: {fileID: 0}
