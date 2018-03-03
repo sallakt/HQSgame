@@ -12,6 +12,7 @@ public class enemyMovementController : MonoBehaviour {
     float nextflip = 0f;
     bool canFlip = true;
 
+
     private void Awake()
     {
         enemyRB = GetComponent<Rigidbody2D>();
@@ -19,8 +20,8 @@ public class enemyMovementController : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
-		
-	}
+
+    }
 
     // Update is called once per frame
     void Update() {
@@ -29,13 +30,13 @@ public class enemyMovementController : MonoBehaviour {
             nextflip = Time.time + facingTime;
             flip();
         }
-	}
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
-            if(facingRight && collision.transform.position.x < transform.position.x)
+            if (facingRight && collision.transform.position.x < transform.position.x)
             {
                 flip();
             }

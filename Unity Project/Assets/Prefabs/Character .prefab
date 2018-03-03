@@ -207,6 +207,8 @@ MonoBehaviour:
   gunTip: {fileID: 4355318588457516}
   gunTipCrouching: {fileID: 4938960859470318}
   bullet: {fileID: 1066955804114018, guid: 79e9981339944fd4093dcd1ebd82d2d5, type: 2}
+  sound: {fileID: 0}
+  touchingCollider: []
 --- !u!114 &114808368512318778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -222,6 +224,7 @@ MonoBehaviour:
   currentHealth: 0
   bloodEffect: {fileID: 1393126457744536, guid: 96e1e652c8a252941923914eadd42c51,
     type: 2}
+  sound: {fileID: 0}
   playerHealthSlider: {fileID: 0}
 --- !u!212 &212258420344101452
 SpriteRenderer:

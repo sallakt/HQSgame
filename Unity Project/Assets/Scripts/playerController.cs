@@ -18,6 +18,8 @@ public class playerController : MonoBehaviour {
     //public GameObject popMess;
     float fireRate = 0.5f; //fire per 0.5s
     float nextFire = 0; //fire immediately;
+    //Declare Sound 
+    public characterSoundManager characterSound;
 
     Rigidbody2D myBody;
     Animator myAni;
@@ -29,11 +31,11 @@ public class playerController : MonoBehaviour {
         myBody = GetComponent<Rigidbody2D> ();
         myAni = GetComponent<Animator>();
         facingRight = true;
+        characterSound = GameObject.FindGameObjectWithTag("CharacterSound").GetComponent<characterSoundManager>();
+    }
 
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+    // Update is called once per frame
+    void FixedUpdate () {
         float move = Input.GetAxis("Horizontal");
         myAni.SetFloat("Speed", Mathf.Abs(move));
         myAni.SetBool("Grounded", grounded);
@@ -54,6 +56,7 @@ public class playerController : MonoBehaviour {
             if (grounded){
                 grounded = false;
                 myBody.velocity = new Vector2(myBody.velocity.x, jumpHeight);
+                characterSound.Playsound("jump");
             }
         }
         if (Input.GetKeyDown(KeyCode.S)) {
@@ -125,6 +128,7 @@ public class playerController : MonoBehaviour {
     void fireBullet() {
         if(Time.time > nextFire)
         {
+            characterSound.Playsound("shoot");
             nextFire = Time.time + fireRate;
             if (facingRight)
             {

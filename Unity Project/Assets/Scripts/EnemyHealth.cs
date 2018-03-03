@@ -10,16 +10,21 @@ public class EnemyHealth : MonoBehaviour {
     public GameObject enemyHealthEF;
     //Enemyhealth UI
     public Slider enemyHealthSlider;
+    //Declare Sound 
+    public dieSoundManager dieSound;
 
-	// Use this for initialization
-	void Start () {
+
+
+    // Use this for initialization
+    void Start () {
         currentHealth = maxHealth;
         enemyHealthSlider.maxValue = maxHealth;
         enemyHealthSlider.value = maxHealth;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        dieSound = GameObject.FindGameObjectWithTag("DieSound").GetComponent<dieSoundManager>();
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
     public void addDamage(float damage)
@@ -30,6 +35,7 @@ public class EnemyHealth : MonoBehaviour {
         if(currentHealth <= 0)
         {
             makeDead();
+            dieSound.Playsound("enemyDie");
         }
     }
     void makeDead()
