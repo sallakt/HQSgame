@@ -10,8 +10,6 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene("Level1");
-        //or in brackets: SceneManager.GetActiveScene().buildIndex + 1
-        //^ if you always want the "next level"
     }
     //Main menu "quit" button
     public void Quit()
@@ -20,4 +18,9 @@ public class MainMenu : MonoBehaviour
         Debug.Log("GAME HAS BEEN QUIT");
         Application.Quit();
     }
+	//GameOverMenu button to going back to main menu
+	public void ToMenu()
+	{
+		SceneManager.LoadScene("Menu");
+	}
 }
