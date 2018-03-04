@@ -8,6 +8,7 @@ TagManager:
   - Shootable
   - CharacterSound
   - DieSound
+  - Score
   layers:
   - Default
   - TransparentFX
