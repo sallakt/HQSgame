@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1610776997591992}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25.9, y: 10.26, z: 5}
+  m_LocalPosition: {x: -28.3, y: 9.9, z: 5}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4355318588457516}
@@ -136,7 +136,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.24, y: 1.1}
+  m_Offset: {x: 0, y: 1.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -147,7 +147,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.03, y: 10.53}
+  m_Size: {x: 5.5, y: 10.5}
   m_EdgeRadius: 0
 --- !u!61 &61513383469310422
 BoxCollider2D:
@@ -161,7 +161,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.21}
+  m_Offset: {x: 0, y: -3.0618405}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -172,7 +172,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 10}
+  m_Size: {x: 5, y: 1.4563189}
   m_EdgeRadius: 0
 --- !u!95 &95368986287533500
 Animator:
@@ -202,12 +202,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2d0142cc6eba52478829f08e8be4469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 8
+  maxSpeed: 15
   jumpHeight: 15
   gunTip: {fileID: 4355318588457516}
   gunTipCrouching: {fileID: 4938960859470318}
   bullet: {fileID: 1066955804114018, guid: 79e9981339944fd4093dcd1ebd82d2d5, type: 2}
-  sound: {fileID: 0}
+  characterSound: {fileID: 0}
   touchingCollider: []
 --- !u!114 &114808368512318778
 MonoBehaviour:
@@ -221,10 +221,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
-  currentHealth: 0
+  currentHealth: 20
   bloodEffect: {fileID: 1393126457744536, guid: 96e1e652c8a252941923914eadd42c51,
     type: 2}
-  sound: {fileID: 0}
+  characterSound: {fileID: 0}
+  dieSound: {fileID: 0}
   playerHealthSlider: {fileID: 0}
 --- !u!212 &212258420344101452
 SpriteRenderer:

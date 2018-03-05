@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class arrow : MonoBehaviour {
+public class arrow : playerHealth {
 	Rigidbody2D arrowbody;
 	//public playerHealth die;
 	public Vector2 direction = new Vector2(0,0);
@@ -17,6 +17,7 @@ public class arrow : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D collision){
 		if (collision.CompareTag ("Player")) {
+			playerHealth.playerScore++;
 			SceneManager.LoadScene ("Level1");
 			//die.makeDead();
 		}
