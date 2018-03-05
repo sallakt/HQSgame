@@ -28,4 +28,13 @@ public class MainMenu : MonoBehaviour
 	public void ToScores() {
 		SceneManager.LoadScene("HighScores");
 	}
+
+	//getting the score from player health
+	private static int score;
+	//in highscore menu restart button also restarts count
+	public void Restart() {
+		SceneManager.LoadScene("Level1");
+		//setting score back to 0
+		score = 0;
+	}
 }

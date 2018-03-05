@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Blade : MonoBehaviour {
 
+	public playerHealth die;
 	public float rotationspeed;
 
 	//what the blade does - rotates with x speed
@@ -14,12 +15,8 @@ public class Blade : MonoBehaviour {
 	//what happens when touched - death
 	void OnTriggerEnter2D(Collider2D collision){
 		if (collision.CompareTag ("Player")) {
-			SceneManager.LoadScene ("Level1");
+			//SceneManager.LoadScene ("Level1");
+			die.makeDead();
 		}
 	}
-	/*void OnTriggerEnter2D(Collider2D other){
-		//Destroy (other.gameObject);
-		SceneManager.LoadScene("Level1");
-		//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-	}*/
 }

@@ -43,10 +43,12 @@ public class playerHealth : MonoBehaviour {
         }
     }
 
+	public static int playerScore = 1;
     public void makeDead()
     {
         Instantiate(bloodEffect, transform.position, transform.rotation);
         gameObject.SetActive(false);
 		SceneManager.LoadScene ("Level1");
+		playerScore++;
     }
 }

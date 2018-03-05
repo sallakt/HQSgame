@@ -5,6 +5,7 @@ Assets/Level/GameOver.unity
 Assets/Level/Level1.unity
 Assets/Level/Level2.unity
 Assets/Level/Level3.unity
+Assets/Level/HighScores.unity
 SceneListEnd?
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 970a95104359198fe1a98ef48655de8c UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
@@ -130,8 +131,9 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 6c072b39b3c68413bc432aaada417754 Assembly-CSharp.dll:.trapController
 3efff36237fb9428ea5372c2609e320d Assembly-CSharp.dll:.usebleSwitch
 3bd024f46963ff6928f1170353c44fd3 Assembly-CSharp.dll:.enemyMovementController
-1557e68e5850f93c7b72ae0b4ff55ead Assembly-CSharp.dll:.Blade
+3838033746403ce061a5085d3eaa7bbf Assembly-CSharp.dll:.Blade
 782eb8327926c5de86a44c8f0eb105ac Assembly-CSharp.dll:.ArrowShooter
+74b32fc626f1154297b5adce25bc8cce Assembly-CSharp.dll:.HighScoreScript
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 e6ac57ed55ccac2ccced7c35a2544130 Assembly-CSharp.dll:.arrow
@@ -152,6 +154,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 4afd1381f89c9255ac45415bf640adb8 Assembly-CSharp.dll:.cameraController
 32222c4ca554665cf0071c626d06123e Assembly-CSharp.dll:.cameraFollow
+0b7b0ebccabc535c90a9334d42574b55 Assembly-CSharp.dll:.DatabaseManager
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 96d0fbde9fd209878a0a291f82c9bcdd UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 64eb32cc721b1cc68a91ed57461e188c UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
@@ -169,5 +172,3 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 e629a29e5d90cb09ca0ca19989823e0a Assembly-CSharp.dll:.projectileController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.laserDoorTrap
 164c5e25e1f26f60c1eb4f5a13cd6418 Assembly-CSharp.dll:.characterSoundManager
-0b7b0ebccabc535c90a9334d42574b55 Assembly-CSharp.dll:.DatabaseManager
-74b32fc626f1154297b5adce25bc8cce Assembly-CSharp.dll:.HighScoreScript

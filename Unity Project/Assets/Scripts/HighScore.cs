@@ -17,13 +17,13 @@ public class HighScore : IComparable<HighScore> {
 		this.Name = name;
 		this.Date = date;
 	}
-	//sorting the score: order by score, if same score order by date
+	//sorting the score: order by score (low to high numbers), if same score order by date
 	public int CompareTo(HighScore other) {
 		if (other.Score < this.Score) {
-			return -1;
+			return 1;
 		}
 		if (other.Score > this.Score) {
-			return 1;
+			return -1;
 		} else if (other.Date < this.Date) {
 			return -1;
 		} else if (other.Date > this.Date) {

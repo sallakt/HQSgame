@@ -5,8 +5,12 @@ using UnityEngine.UI;
 using System;
 using System.Data;
 using Mono.Data.Sqlite;
+using UnityEngine.SceneManagement;
 
 public class DatabaseManager : MonoBehaviour {
+
+//the sorting of the scores low vs. high has been changed in HighScore.cs : the lower the better
+//now the lowest score is on top, so lowest score in this .cs means worst
 
 	//connection screen for opening the DB
 	private string connectString;
@@ -19,6 +23,8 @@ public class DatabaseManager : MonoBehaviour {
 	public int saveScores;
 	public InputField enterName;
 	public GameObject nameDialog;
+	//getting the score from player health
+	private static int score;
 
 	void Start () {
 		//finding the databse in unity
@@ -36,6 +42,8 @@ public class DatabaseManager : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			nameDialog.SetActive(!nameDialog.activeSelf);
 		}
+		//get player score data
+		score = playerHealth.playerScore;
 	}
 
 //FOR THE DB TO WORK WHEN BUILDING
@@ -43,7 +51,7 @@ public class DatabaseManager : MonoBehaviour {
 		using (IDbConnection dbConnection = new SqliteConnection (connectString)) {
 
 			dbConnection.Open ();
-			//making a DB command: INSERT
+			//making a DB command: CREATE TABLE
 			using (IDbCommand dbCmd = dbConnection.CreateCommand ()) {
 				//create the DB table if it doesn't exist
 				string sqlQuery = String.Format ("CREATE TABLE if not exists HighScores (DI INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, Name TEXT NOT NULL, Score INTEGER NOT NULL, Date DATETIME NOT NULL DEFAULT CURRENT_DATE)");
@@ -60,7 +68,7 @@ public class DatabaseManager : MonoBehaviour {
 		if (enterName.text != string.Empty) {
 			//THIS IS INPUTTING RANDOM NUMBERS
 			//has to be changed to what our player earns as a score!
-			int score = UnityEngine.Random.Range (1, 100);
+			//int score = UnityEngine.Random.Range (1, 100);
 			InsertScore (enterName.text, score);
 			//after entering name the text box becomes empty again
 			enterName.text = string.Empty;
@@ -74,8 +82,8 @@ public class DatabaseManager : MonoBehaviour {
 		GetScore ();
 		int count = highScores.Count;
 
-		//if a new score is higher than the lowest that is saved and taken to account in the top
-		//then the lowest ones needs to be deleted
+		//if a new score is better than the worst that is saved and taken to account in the top
+		//then the worst ones needs to be deleted
 		if (highScores.Count > 0) {
 			HighScore lowestScore = highScores [highScores.Count - 1];
 			if (lowestScore != null && saveScores > 0 && highScores.Count >= saveScores && newScore > lowestScore.Score) {
@@ -174,7 +182,7 @@ public class DatabaseManager : MonoBehaviour {
 		if (saveScores <= highScores.Count) {
 			//how many to delete
 			int deleteCount = highScores.Count - saveScores;
-			//delete only the lowest ranking ones
+			//delete only the worst ranking ones
 			highScores.Reverse();
 			//DELETION
 			using (IDbConnection dbConnection = new SqliteConnection (connectString)) {
@@ -193,4 +201,11 @@ public class DatabaseManager : MonoBehaviour {
 			}
 		}
 	}
+//ACCESS AT END OF GAME
+	//what happens when touched - scores screen
+/*	void OnTriggerEnter2D(Collider2D collision){
+		if (collision.CompareTag ("Player")) {
+			SceneManager.LoadScene ("HighScores");
+		}
+	}*/
 }

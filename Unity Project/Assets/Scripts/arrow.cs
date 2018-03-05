@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class arrow : MonoBehaviour {
 	Rigidbody2D arrowbody;
+	//public playerHealth die;
 	public Vector2 direction = new Vector2(0,0);
 
 	void Start () {
@@ -17,6 +18,7 @@ public class arrow : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collision){
 		if (collision.CompareTag ("Player")) {
 			SceneManager.LoadScene ("Level1");
+			//die.makeDead();
 		}
 	}
 }
