@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelManager : MonoBehaviour {
+public class LevelManager : playerHealth {
 
 	public GameObject currentCheckpoint;
 	private playerController player;
@@ -20,5 +20,6 @@ public class LevelManager : MonoBehaviour {
 	public void respawnPlayer() {
 		player.transform.position = currentCheckpoint.transform.position;
 		player.transform.parent = null;
+		playerHealth.playerScore++;
 	}
 }
