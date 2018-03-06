@@ -5,11 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
+	//getting the score from player health
+	private static int score;
     //Main menu "play" button
     public void Play()
     {
         SceneManager.LoadScene("Level1");
+		//player score back to 0
+		score = 0;
     }
     //Main menu "quit" button
     public void Quit()
@@ -29,8 +32,6 @@ public class MainMenu : MonoBehaviour
 		SceneManager.LoadScene("HighScores");
 	}
 
-	//getting the score from player health
-	private static int score;
 	//in highscore menu restart button also restarts count
 	public void Restart() {
 		SceneManager.LoadScene("Level1");
