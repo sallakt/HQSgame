@@ -9,6 +9,8 @@ public class PauseMenu : MonoBehaviour {
 	public GameObject PauseUI;
 
 	private bool paused = false;
+	//getting the score from player health
+	private static int score;
 
 	//disable the menu when playing
 	void Start (){
@@ -44,6 +46,7 @@ public class PauseMenu : MonoBehaviour {
 	public void MainMenu(){
 		SceneManager.LoadScene("Menu");
 		Time.timeScale = 1;
+		score = 0;
 	}
 	public void Quit(){
 		//to let us know it works
