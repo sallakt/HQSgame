@@ -5,16 +5,11 @@ using UnityEngine;
 public class trapController : MonoBehaviour {
 
 	//player - trap interaction
-	public LevelManager levelManager;
+	public reloadTrap levelManager;
 	// Use this for initialization
 	void Start () {
 		//player - trap interaction
-		levelManager = FindObjectOfType<LevelManager>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		levelManager = FindObjectOfType<reloadTrap>();
 	}
 
 	//player - trap interaction

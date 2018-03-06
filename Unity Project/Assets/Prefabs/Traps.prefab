@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 114149573207785454}
   - component: {fileID: 95717940584111002}
   - component: {fileID: 114254772238056940}
+  - component: {fileID: 114073721818134352}
   m_Layer: 0
   m_Name: laserBeam
   m_TagString: Untagged
@@ -167,7 +168,7 @@ Animator:
   m_GameObject: {fileID: 1855939253981928}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 97cd85c017b8a40479c916c7e69cffad, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -175,6 +176,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114073721818134352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1855939253981928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4558f9231b055649a6761826559b765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
+  bloodEffect: {fileID: 0}
+  characterSound: {fileID: 0}
+  dieSound: {fileID: 0}
+  playerHealthSlider: {fileID: 0}
 --- !u!114 &114149573207785454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a24cd5d61691d4c8ed3c32d60612e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 0}
+  levelManager: {fileID: 114073721818134352}
 --- !u!114 &114254772238056940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -240,7 +258,7 @@ SpriteRenderer:
   m_Size: {x: 0.62, y: 3.46}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!212 &212596205975788730
 SpriteRenderer:
@@ -284,7 +302,7 @@ SpriteRenderer:
   m_Size: {x: 0.32, y: 0.34}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!212 &212734767803217454
 SpriteRenderer:
@@ -328,5 +346,5 @@ SpriteRenderer:
   m_Size: {x: 0.32, y: 0.34}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0

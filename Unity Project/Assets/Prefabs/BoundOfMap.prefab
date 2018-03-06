@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4192217901902436}
   - component: {fileID: 61314446585906934}
   - component: {fileID: 114779148374093800}
+  - component: {fileID: 114427580991152072}
+  - component: {fileID: 114865830767778878}
   m_Layer: 0
   m_Name: BoundOfMap
   m_TagString: Untagged
@@ -66,6 +68,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 150, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114427580991152072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1848973830216202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cdc991a4ab433341886d28f16067f8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
+  bloodEffect: {fileID: 0}
+  characterSound: {fileID: 0}
+  dieSound: {fileID: 0}
+  playerHealthSlider: {fileID: 0}
 --- !u!114 &114779148374093800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -77,4 +96,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5b9d44edcdc3d44bdfde9abd76c6c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCheckpoint: {fileID: 0}
+  maxHealth: 0
+  currentHealth: 0
+  bloodEffect: {fileID: 0}
+  characterSound: {fileID: 0}
+  dieSound: {fileID: 0}
+  playerHealthSlider: {fileID: 0}
+--- !u!114 &114865830767778878
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1848973830216202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3620a3d2d88301041863e05ccc939e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelManager: {fileID: 114427580991152072}

@@ -18,8 +18,7 @@ public class LevelManager : playerHealth {
 	void Update () {
 		
 	}
-	public void respawnPlayer() {
-		SceneManager.LoadScene ("GameOver");
+	public virtual void respawnPlayer() {
 		player.transform.parent = null;
 		playerHealth.playerScore++;
 	}
