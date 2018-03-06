@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : playerHealth {
 
-	public GameObject currentCheckpoint;
+	//public GameObject currentCheckpoint;
 	private playerController player;
 	//private playerHealth spawnHealth;
 	// Use this for initialization
@@ -18,7 +19,7 @@ public class LevelManager : playerHealth {
 		
 	}
 	public void respawnPlayer() {
-		player.transform.position = currentCheckpoint.transform.position;
+		SceneManager.LoadScene ("GameOver");
 		player.transform.parent = null;
 		playerHealth.playerScore++;
 	}
