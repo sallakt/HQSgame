@@ -5,14 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-	//getting the score from player health
-	private static int score;
     //Main menu "play" button
     public void Play()
     {
         SceneManager.LoadScene("Level1");
 		//player score back to 0
-		score = 0;
+		playerHealth.playerScore = 0;
     }
     //Main menu "quit" button
     public void Quit()
@@ -36,6 +34,10 @@ public class MainMenu : MonoBehaviour
 	public void Restart() {
 		SceneManager.LoadScene("Level1");
 		//setting score back to 0
-		score = 0;
+		playerHealth.playerScore = 0;
+	}
+	//in game over menu restart button DOESN'T restarts count
+	public void StartAgain() {
+		SceneManager.LoadScene("Level1");
 	}
 }

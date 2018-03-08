@@ -7,6 +7,6 @@ public class reloadTrap : LevelManager {
 	public override void respawnPlayer()
 	{
 		base.respawnPlayer ();
-		SceneManager.LoadScene ("Level1");
+		SceneManager.LoadScene ("GameOver");
 	}
 }
