@@ -201,11 +201,4 @@ public class DatabaseManager : MonoBehaviour {
 			}
 		}
 	}
-//ACCESS AT END OF GAME
-	//what happens when touched - scores screen
-/*	void OnTriggerEnter2D(Collider2D collision){
-		if (collision.CompareTag ("Player")) {
-			SceneManager.LoadScene ("HighScores");
-		}
-	}*/
 }
