@@ -20,6 +20,8 @@ public class playerController : MonoBehaviour {
     float nextFire = 0; //fire immediately;
     //Declare Sound 
     public characterSoundManager characterSound;
+    //Box collider
+    BoxCollider2D boxcld;
 
     Rigidbody2D myBody;
     Animator myAni;
@@ -59,12 +61,15 @@ public class playerController : MonoBehaviour {
                 characterSound.Playsound("jump");
             }
         }
+        boxcld = GetComponent<BoxCollider2D>();
         if (Input.GetKeyDown(KeyCode.S)) {
             crouching = true;
+            boxcld.size = new Vector2(5.29f, 8);
         }
         if (Input.GetKeyUp(KeyCode.S))
         {
             crouching = false;
+            boxcld.size = new Vector2(5.29f, 10.79f);
         }
         //Fire by mouse
         if (Input.GetAxisRaw("Fire1") > 0)
