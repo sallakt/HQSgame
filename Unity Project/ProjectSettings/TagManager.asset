@@ -9,6 +9,7 @@ TagManager:
   - CharacterSound
   - DieSound
   - Score
+  - Switch
   layers:
   - Default
   - TransparentFX

@@ -18839,11 +18839,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 17
       objectReference: {fileID: 0}
-    - target: {fileID: 95569665432939780, guid: 08169f1ae935b284280fc7059b6ccf14,
-        type: 2}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: c1b1b6ae376a30c43a0f362ae69b282b, type: 2}
     - target: {fileID: 114378535211665816, guid: 08169f1ae935b284280fc7059b6ccf14,
         type: 2}
       propertyPath: targets.Array.data[0]
@@ -38701,6 +38696,11 @@ Prefab:
       propertyPath: currentCamera
       value: 
       objectReference: {fileID: 2096425453}
+    - target: {fileID: 114808368512318778, guid: f622cb91d5a20314b9a088a213be254f,
+        type: 2}
+      propertyPath: maxHealth
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f622cb91d5a20314b9a088a213be254f, type: 2}
   m_IsPrefabParent: 0

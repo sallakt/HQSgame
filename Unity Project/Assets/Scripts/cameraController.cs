@@ -7,8 +7,7 @@ public class cameraController : MonoBehaviour {
 
 	public Camera[] cameras;
 	public Camera currentCamera;
-	public int count;
-	  
+	public int count; 
 
 	// Use this for initialization
 	void Start () {
@@ -30,5 +29,10 @@ public class cameraController : MonoBehaviour {
 			currentCamera = cameras [count];
 			currentCamera.gameObject.SetActive (true);
 		}	
+		if (count != 0) {
+			Time.timeScale = 0;
+		} else {
+			Time.timeScale = 1;
+		}
 	}
 }

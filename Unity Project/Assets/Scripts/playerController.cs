@@ -46,7 +46,10 @@ public class playerController : MonoBehaviour {
         {
             myBody.velocity = new Vector2(move * maxSpeed, myBody.velocity.y);
         }
-        
+		if (crouching && grounded) 
+		{
+			myBody.velocity = Vector2.zero;
+		}
         if (move > 0 && !facingRight)
         {
             flip();
@@ -118,13 +121,17 @@ public class playerController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        touchingCollider.Add(col);
+		if (col.tag == "Switch") {
+			touchingCollider.Add (col);
+		}
         //popMess.SetActive(true);
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        touchingCollider.Remove(col);
+		if (col.tag == "Switch") {
+			touchingCollider.Remove (col);
+		}
         //popMess.SetActive(false);
     }
 
