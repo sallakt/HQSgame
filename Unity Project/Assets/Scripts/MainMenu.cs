@@ -9,8 +9,8 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene("Level1");
-		//player score back to 0
-		playerHealth.playerScore = 0;
+		//player score back to 1
+		playerHealth.playerScore = 1;
     }
     //Main menu "quit" button
     public void Quit()
@@ -33,8 +33,8 @@ public class MainMenu : MonoBehaviour
 	//in highscore menu restart button also restarts count
 	public void Restart() {
 		SceneManager.LoadScene("Level1");
-		//setting score back to 0
-		playerHealth.playerScore = 0;
+		//setting score back to 1
+		playerHealth.playerScore = 1;
 	}
 	//in game over menu restart button DOESN'T restarts count
 	public void StartAgain() {

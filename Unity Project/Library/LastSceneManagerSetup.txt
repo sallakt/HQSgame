@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Level/GameOver.unity
+- path: Assets/Level/Menu.unity
   isLoaded: 1
   isActive: 1
