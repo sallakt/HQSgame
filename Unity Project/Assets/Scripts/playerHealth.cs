@@ -48,7 +48,7 @@ public class playerHealth : MonoBehaviour {
     {
         Instantiate(bloodEffect, transform.position, transform.rotation);
         gameObject.SetActive(false);
-		SceneManager.LoadScene ("Level1");
+		SceneManager.LoadScene ("GameOver");
 		playerScore++;
     }
 }

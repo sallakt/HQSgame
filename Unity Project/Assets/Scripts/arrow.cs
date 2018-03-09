@@ -18,7 +18,7 @@ public class arrow : playerHealth {
 	void OnTriggerEnter2D(Collider2D collision){
 		if (collision.CompareTag ("Player")) {
 			playerHealth.playerScore++;
-			SceneManager.LoadScene ("Level1");
+			SceneManager.LoadScene ("GameOver");
 			//die.makeDead();
 		}
 	}
