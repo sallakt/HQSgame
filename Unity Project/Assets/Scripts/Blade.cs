@@ -15,7 +15,6 @@ public class Blade : MonoBehaviour {
 	//what happens when touched - death
 	void OnTriggerEnter2D(Collider2D collision){
 		if (collision.CompareTag ("Player")) {
-			//SceneManager.LoadScene ("Level1");
 			die.makeDead();
 		}
 	}

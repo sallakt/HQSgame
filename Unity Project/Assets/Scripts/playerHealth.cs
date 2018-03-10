@@ -39,13 +39,13 @@ public class playerHealth : MonoBehaviour {
         if (currentHealth <=0)
         {
             makeDead();
-            dieSound.Playsound("characterDie");
         }
     }
 
 	public static int playerScore = 1;
     public void makeDead()
     {
+        dieSound.Playsound("characterDie");
         Instantiate(bloodEffect, transform.position, transform.rotation);
         gameObject.SetActive(false);
 		SceneManager.LoadScene ("GameOver");

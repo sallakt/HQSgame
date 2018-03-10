@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1933826725342118}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 113.8, y: 11.1, z: 0}
+  m_LocalPosition: {x: 105.477516, y: 10.8525505, z: 0}
   m_LocalScale: {x: 0.13898194, y: 0.52624494, z: 0.9894156}
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.09}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -86,7 +86,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10, y: 1}
+  m_Size: {x: 8, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &114659713773626362
 MonoBehaviour:
@@ -99,6 +99,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2578089856215a1408eba9eb06a3b44d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
+  bloodEffect: {fileID: 0}
+  characterSound: {fileID: 0}
+  dieSound: {fileID: 0}
+  playerHealthSlider: {fileID: 0}
+  Sound: {fileID: 0}
   direction: {x: -10, y: 0}
 --- !u!212 &212117249377928272
 SpriteRenderer:

@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class reloadTrap : LevelManager {
-	public override void respawnPlayer()
+    public override void respawnPlayer()
 	{
 		base.respawnPlayer ();
 		SceneManager.LoadScene ("GameOver");
-	}
+    }
 }

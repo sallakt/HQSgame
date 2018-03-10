@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class arrow : playerHealth {
 	Rigidbody2D arrowbody;
-	//public playerHealth die;
-	public Vector2 direction = new Vector2(0,0);
+    public dieSoundManager Sound;
+
+    //public playerHealth die;
+    public Vector2 direction = new Vector2(0,0);
 
 	void Start () {
 		arrowbody = GetComponent<Rigidbody2D> ();
@@ -17,7 +19,9 @@ public class arrow : playerHealth {
 	}
 	void OnTriggerEnter2D(Collider2D collision){
 		if (collision.CompareTag ("Player")) {
-			playerHealth.playerScore++;
+            Sound = GameObject.FindGameObjectWithTag("DieSound").GetComponent<dieSoundManager>();
+            Sound.Playsound("characterDie");
+            playerHealth.playerScore++;
 			SceneManager.LoadScene ("GameOver");
 			//die.makeDead();
 		}
