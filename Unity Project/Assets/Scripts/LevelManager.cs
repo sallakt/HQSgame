@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : playerHealth {
+public class LevelManager : MonoBehaviour {
 
 	//public GameObject currentCheckpoint;
 	private playerController player;

@@ -40,16 +40,14 @@ public class toggleObject : MonoBehaviour {
 	{
 		turnedOn = on;	
 		myAni.SetBool("isOn",on);
-		Debug.Log ("switch state" + on);
 		if (!on) {
 			if (targets.Count > 0 && !string.IsNullOrEmpty (onMessage)) {
-				Debug.Log ("onMessage sent");
 				//targets.ForEach (n => n.SendMessage (onMessage));
 				foreach (GameObject n in targets) n.gameObject.SendMessage (onMessage);
 			} 		
-		} else if (on) {
+		} 
+		if (on) {
 			if (targets.Count > 0 && !string.IsNullOrEmpty (offMessage)) {
-				Debug.Log ("offMessage sent");
 				//targets.ForEach (n => n.SendMessage (offMessage));
 				foreach (GameObject n in targets) n.gameObject.SendMessage (offMessage);
 			}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class toggleTarget : MonoBehaviour {
 
-	private bool isOpen;
+	private bool isOpen = false;
 
 	// Use this for initialization
 

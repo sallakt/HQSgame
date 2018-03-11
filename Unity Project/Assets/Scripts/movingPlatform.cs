@@ -12,21 +12,26 @@ public class movingPlatform : MonoBehaviour {
 	public Transform currentTarget;
 	public Transform [] targets;
 
+	public static bool called;
+
 	// Use this for initialization
 	void Start () {
 		currentTarget = targets [count];	
+		called = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		platform.transform.position = 
-			Vector3.MoveTowards (platform.transform.position, currentTarget.position, moveSpeed * Time.deltaTime);
-		if (platform.transform.position == currentTarget.position) {
-			if (count == targets.Length -1) {
-				count = 0;
-			} else
-				count++;
-			currentTarget = targets [count];
+		if (called) {
+			platform.transform.position = 
+				Vector3.MoveTowards (platform.transform.position, currentTarget.position, moveSpeed * Time.deltaTime);
+			if (platform.transform.position == currentTarget.position) {
+				if (count == targets.Length - 1) {
+					count = 0;
+				} else
+					count++;
+				currentTarget = targets [count];
+			}
 		}
 	}
 }

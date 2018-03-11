@@ -17,8 +17,8 @@ public class laserDoorTrap : toggleTarget {
 	public override void SetState(bool open)
 	{
 		base.SetState (open);
-		deathZone.enabled = open;
-		laserSprite.enabled = open;
+		deathZone.enabled = !open;
+		laserSprite.enabled = !open;
 	}
 }
 

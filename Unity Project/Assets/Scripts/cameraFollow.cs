@@ -19,7 +19,7 @@ public class cameraFollow : MonoBehaviour
     void Start()
     {
         offset = transform.position - target.position;
-        lowY = transform.position.y;
+        //lowY = transform.position.y;
     }
 
     // Calculate position for camera, and if character falls below lowY, camera stays at lowY 

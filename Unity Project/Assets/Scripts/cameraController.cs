@@ -7,7 +7,7 @@ public class cameraController : MonoBehaviour {
 
 	public Camera[] cameras;
 	public Camera currentCamera;
-	public int count; 
+	public static int count; 
 
 	// Use this for initialization
 	void Start () {
@@ -21,18 +21,23 @@ public class cameraController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.C)) {
-			if (count == cameras.Length - 1) {
-				count = 0;
-			} else
-				count++;
-			currentCamera.gameObject.SetActive (false);
+			if (cameraController.count == cameras.Length - 1) {
+				cameraController.count = 0;
+			} else {
+				cameraController.count++;
+			}
 			currentCamera = cameras [count];
+			for (int i = 0; i < cameras.Length; i++) {
+				if (i != count) {
+					cameras [i].gameObject.SetActive (false);
+				}
+			}
 			currentCamera.gameObject.SetActive (true);
+			if (count == 0) {
+				Time.timeScale = 1;
+			} else {
+				Time.timeScale = 0;
+			}
 		}	
-		if (count == 0) {
-			Time.timeScale = 0;
-		} else {
-			Time.timeScale = 1;
-		}
 	}
 }
