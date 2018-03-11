@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class characterSoundManager : MonoBehaviour
 {
-
+    // Audio clip declare
     public AudioClip jump, losingHealth, shoot;
+    // Audio source declare
     public AudioSource adisrc;
 
-    // Use this for initialization
+    /// <summary>
+    /// Load the audio source
+    /// </summary>
     void Start()
     {
         jump = Resources.Load<AudioClip>("Jump");
@@ -17,7 +20,10 @@ public class characterSoundManager : MonoBehaviour
         adisrc = GetComponent<AudioSource>();
     }
 
-    //Play Sound function
+    /// <summary>
+    /// Play Sound function
+    /// </summary>
+    /// <param name="clip"></param>
     public void Playsound(string clip)
     {
         switch (clip)

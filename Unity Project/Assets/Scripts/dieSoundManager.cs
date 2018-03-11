@@ -2,17 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class dieSoundManager : MonoBehaviour {
+public class dieSoundManager : MonoBehaviour
+{
+    // Audio clip declare
     public AudioClip enemyDie, characterDie;
+    // Audio source declare
     public AudioSource adisrc;
-    // Use this for initialization
-    void Start () {
+
+    /// <summary>
+    /// Load the audio source
+    /// </summary>
+    void Start()
+    {
         enemyDie = Resources.Load<AudioClip>("EnemyDie");
         characterDie = Resources.Load<AudioClip>("CharacterDie");
         adisrc = GetComponent<AudioSource>();
     }
 
-    //Play Sound function
+    /// <summary>
+    /// Play Sound function
+    /// </summary>
+    /// <param name="clip"></param>
     public void Playsound(string clip)
     {
         switch (clip)

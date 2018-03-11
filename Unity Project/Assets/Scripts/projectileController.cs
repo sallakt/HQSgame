@@ -2,10 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class projectileController : MonoBehaviour {
+public class projectileController : MonoBehaviour
+{
+    // Bullet speed 
     public float bulletSpeed;
+    // Bullet rigidbody component
     Rigidbody2D myBody;
 
+    /// <summary>
+    /// Adding force for the bullet
+    /// </summary>
     private void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
@@ -13,24 +19,29 @@ public class projectileController : MonoBehaviour {
         {
             myBody.AddForce(new Vector2(-1, 0) * bulletSpeed, ForceMode2D.Impulse);
         }
-        else {
+        else
+        {
             myBody.AddForce(new Vector2(1, 0) * bulletSpeed, ForceMode2D.Impulse);
         }
     }
 
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
 
-    // Make the bullet stop
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    /// <summary>
+    /// Make the bullet stop function
+    /// </summary>
     public void removeForce()
     {
-        myBody.velocity = new Vector2(0,0);
+        myBody.velocity = new Vector2(0, 0);
     }
 }
