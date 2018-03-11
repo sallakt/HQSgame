@@ -6,18 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-	//public GameObject currentCheckpoint;
+	/// <summary>
+	/// Takes an object of class "playerController" to manage the heirachy of the character
+	/// (interaction with moving platforms)
+	/// </summary>
 	private playerController player;
-	//private playerHealth spawnHealth;
-	// Use this for initialization
+
+	/// <summary>
+	/// Get the necessary components in the object this script is attached to
+	/// </summary>
 	void Start () {
 		player = FindObjectOfType<playerController> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	/// <summary>
+	/// Respawns the player.
+	/// Set the parent to null (moving platform interaction)
+	/// Add 1 to the number of attempts
+	/// </summary>
 	public virtual void respawnPlayer() {
 		player.transform.parent = null;
 		playerHealth.playerScore++;

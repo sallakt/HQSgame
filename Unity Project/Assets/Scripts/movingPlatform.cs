@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class movingPlatform : MonoBehaviour {
 
+	/// <summary>
+	/// The platform.
+	/// </summary>
 	public GameObject platform;
 
 	public float moveSpeed;
