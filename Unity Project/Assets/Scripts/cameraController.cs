@@ -29,7 +29,7 @@ public class cameraController : MonoBehaviour {
 			currentCamera = cameras [count];
 			currentCamera.gameObject.SetActive (true);
 		}	
-		if (count != 0) {
+		if (count == 0) {
 			Time.timeScale = 0;
 		} else {
 			Time.timeScale = 1;

@@ -5,12 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
 
-	//disabling and enabling the menu
+	//disabling and enabling the menu:
+	/// <summary>
+	/// The pause menu UI gameobject in Unity.
+	/// </summary>
 	public GameObject PauseUI;
-
+	/// <summary>
+	/// Bool to see if the pause menu should be visible and game paused, or not.
+	/// </summary>
 	private bool paused = false;
-	//getting the score from player health
-	private static int score;
 
 	//disable the menu when playing
 	void Start (){
@@ -33,23 +36,32 @@ public class PauseMenu : MonoBehaviour {
 			Time.timeScale = 1;
 		}
 	}
-
+	/// <summary>
+	/// Resuming game: not paused anymore.
+	/// </summary>
 	public void Resume(){
 		paused = false;
 	}
+	/// <summary>
+	/// Restarting level: loading same level again.
+	/// </summary>
 	public void Restart(){
-		//load same level again
 		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
-		//or in brackets SceneManager.GetActiveScene()
-		//or in brackets SceneManager.LoadScene
 	}
+	/// <summary>
+	/// Going back to MainMenu.
+	/// Loading main menu, changing time back and changing score back to 1.
+	/// </summary>
 	public void MainMenu(){
 		SceneManager.LoadScene("Menu");
 		Time.timeScale = 1;
-		score = 1;
+		playerHealth.playerScore = 1;
 	}
+	/// <summary>
+	/// Quits application.
+	/// also gives a Debug message to know it works.
+	/// </summary>
 	public void Quit(){
-		//to let us know it works
 		Debug.Log ("GAME HAS BEEN QUIT");
 		Application.Quit ();
 	}

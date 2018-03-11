@@ -8,7 +8,13 @@ public class HighScoreScript : MonoBehaviour {
 	public GameObject score;
 	public GameObject scoreName;
 	public GameObject rank;
-	//what to show the player in the score table
+	/// <summary>
+	/// Sets the score.
+	/// What is shows to the player in the score table.
+	/// </summary>
+	/// <param name="name">Name.</param>
+	/// <param name="score">Score.</param>
+	/// <param name="rank">Rank.</param>
 	public void SetScore(string name, string score, string rank){
 		this.score.GetComponent<Text>().text = score;
 		this.scoreName.GetComponent<Text>().text = name;

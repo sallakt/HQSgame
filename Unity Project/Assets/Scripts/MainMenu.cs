@@ -5,38 +5,49 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    //Main menu "play" button
-    public void Play()
-    {
+	/// <summary>
+	/// Play game.
+	/// Loads first scene and changes players score back to 1.
+	/// </summary>
+    public void Play() {
         SceneManager.LoadScene("Level1");
-		//player score back to 1
 		playerHealth.playerScore = 1;
     }
     //Main menu "quit" button
-    public void Quit()
-    {
-        //to let us know it works (written in the console in Unity)
+	/// <summary>
+	/// Quits application.
+	/// also gives a Debug message to know it works.
+	/// </summary>
+    public void Quit() {
         Debug.Log("GAME HAS BEEN QUIT");
         Application.Quit();
     }
-	//GameOverMenu button to going back to main menu
-	public void ToMenu()
-	{
+	/// <summary>
+	/// Going back to MainMenu (from GameOverMenu).
+	/// </summary>
+	public void ToMenu() {
 		SceneManager.LoadScene("Menu");
 	}
-
-	//Highscore "menu"
+	/// <summary>
+	/// Going to HighScores (database view).
+	/// </summary>
 	public void ToScores() {
 		SceneManager.LoadScene("HighScores");
 	}
 
-	//in highscore menu restart button also restarts count
+	/// <summary>
+	/// Restarting game (from highscore menu).
+	/// Loads level1 and sets player score back to 1.
+	/// </summary>
 	public void Restart() {
 		SceneManager.LoadScene("Level1");
 		//setting score back to 1
 		playerHealth.playerScore = 1;
 	}
-	//in game over menu restart button DOESN'T restarts count
+	/// <summary>
+	/// Start game again (from GameOver menu).
+	/// Loads level1 but doesn't set player score back!
+	/// </summary>
 	public void StartAgain() {
 		SceneManager.LoadScene("Level1");
 	}

@@ -9,44 +9,53 @@ using UnityEngine.SceneManagement;
 
 public class DatabaseManager : MonoBehaviour {
 
-//the sorting of the scores low vs. high has been changed in HighScore.cs : the lower the better
-//now the lowest score is on top, so lowest score in this .cs means worst
+//The sorting of the scores low vs. high is in HighScore.cs : the lower the value the better.
+//Lowest value is ranked on top, but lowest score in this .cs means worst
 
-	//connection screen for opening the DB
+	/// <summary>
+	/// Connection screen for opening the Database.
+	/// </summary>
 	private string connectString;
-	//adding scores to a list
+	/// <summary>
+	/// Adding scores to a list.
+	/// </summary>
 	private List<HighScore> highScores = new List<HighScore> ();
-	//showing score
+	/// <summary>
+	/// The score prefab: showing the score.
+	/// </summary>
 	public GameObject scorePrefab;
 	public Transform scoreParent;
 	public int topScores;
 	public int saveScores;
 	public InputField enterName;
 	public GameObject nameDialog;
-	//getting the score from player health
+	/// <summary>
+	/// Players score (from playerHealth.cs).
+	/// </summary>
 	private static int score;
 
 	void Start () {
 		//finding the databse in unity
 		connectString = "URI=file:" + Application.dataPath + "/HighScoreDatabase.sqlite";
-
 		CreateTable ();
-
 		DelExtraScores ();
-		//GetScore ();
 		ShowScore();
 	}
 	
 	void Update () {
-		//when escape is pressed it will show/hide it
+		//when escape is pressed it will show/hide the text box for entering your name
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			nameDialog.SetActive(!nameDialog.activeSelf);
 		}
 		//get player score data
 		score = playerHealth.playerScore;
 	}
-
-//FOR THE DB TO WORK WHEN BUILDING
+		
+//CREATE TABLE
+	/// <summary>
+	/// Creates the table (if it doesn't exist!).
+	/// This needs to be here for the .dll files to be processed when the game is run.
+	/// </summary>
 	private void CreateTable() {
 		using (IDbConnection dbConnection = new SqliteConnection (connectString)) {
 
@@ -63,12 +72,13 @@ public class DatabaseManager : MonoBehaviour {
 	}
 		
 //ENTER NAME
+	/// <summary>
+	/// Enters the name.
+	/// Doesn't save empty name, and empties the text box after entering a name.
+	/// </summary>
 	public void EnterName() {
 		//don't save empty name
 		if (enterName.text != string.Empty) {
-			//THIS IS INPUTTING RANDOM NUMBERS
-			//has to be changed to what our player earns as a score!
-			//int score = UnityEngine.Random.Range (1, 100);
 			InsertScore (enterName.text, score);
 			//after entering name the text box becomes empty again
 			enterName.text = string.Empty;
@@ -78,10 +88,15 @@ public class DatabaseManager : MonoBehaviour {
 
 
 //INSERT SCORE
+	/// <summary>
+	/// Inserts the score.
+	/// Takes into account how many are saved, and if another score has to be deleted for one to be added.
+	/// </summary>
+	/// <param name="name">Name.</param>
+	/// <param name="newScore">New score.</param>
 	private void InsertScore(string name, int newScore){
 		GetScore ();
 		int count = highScores.Count;
-
 		//if a new score is better than the worst that is saved and taken to account in the top
 		//then the worst ones needs to be deleted
 		if (highScores.Count > 0) {
@@ -94,11 +109,9 @@ public class DatabaseManager : MonoBehaviour {
 		if (count < saveScores) {
 
 			using (IDbConnection dbConnection = new SqliteConnection (connectString)) {
-
 				dbConnection.Open ();
 				//making a DB command: INSERT
 				using (IDbCommand dbCmd = dbConnection.CreateCommand ()) {
-
 					string sqlQuery = String.Format ("INSERT INTO HighScores(Name,Score) VALUES(\"{0}\",\"{1}\")", name, newScore);
 					dbCmd.CommandText = sqlQuery;
 					dbCmd.ExecuteScalar ();
@@ -108,13 +121,15 @@ public class DatabaseManager : MonoBehaviour {
 		}
 	}
 
-//GET SCORE
+//SELECT (GET) SCORE
+	/// <summary>
+	/// Gets the score and sorts elements in the list.
+	/// </summary>
 	private void GetScore() {
 		//clearing the list
 		highScores.Clear ();
 
 		using (IDbConnection dbConnection = new SqliteConnection (connectString)) {
-
 			dbConnection.Open ();
 			//making a DB command: SELECT
 			using (IDbCommand dbCmd = dbConnection.CreateCommand ()) {
@@ -137,13 +152,15 @@ public class DatabaseManager : MonoBehaviour {
 	}
 
 //DELETE SCORE
+	/// <summary>
+	/// Deleting score.
+	/// </summary>
+	/// <param name="id">Identifier.</param>
 	private void DeleteScore(int id) {
 		using (IDbConnection dbConnection = new SqliteConnection (connectString)) {
-
 			dbConnection.Open ();
-			//making a DB command: INSERT
+			//making a DB command: DELETE
 			using (IDbCommand dbCmd = dbConnection.CreateCommand ()) {
-
 				string sqlQuery = String.Format("DELETE FROM HighScores WHERE ID = \"{0}\"", id);
 				dbCmd.CommandText = sqlQuery;
 				dbCmd.ExecuteScalar ();
@@ -152,13 +169,15 @@ public class DatabaseManager : MonoBehaviour {
 		}
 	}
 //SHOWING SCORE
+	/// <summary>
+	/// Shows the score.
+	/// </summary>
 	private void ShowScore() {
 		GetScore ();
 		//array of scores so it will be new again
 		foreach (GameObject score in GameObject.FindGameObjectsWithTag("Score")) {
 			Destroy (score);
 		}
-
 		//ordering
 		for (int i = 0; i < topScores; i++) {
 			if (i <= highScores.Count - 1) {
@@ -177,6 +196,10 @@ public class DatabaseManager : MonoBehaviour {
 	}
 
 //LIMITING HOW MANY SCORES ARE STORED
+	/// <summary>
+	/// Limits how many scores are stored.
+	/// Deletes the worst ranking ones.
+	/// </summary>
 	private void DelExtraScores() {
 		GetScore ();
 		if (saveScores <= highScores.Count) {
@@ -186,12 +209,10 @@ public class DatabaseManager : MonoBehaviour {
 			highScores.Reverse();
 			//DELETION
 			using (IDbConnection dbConnection = new SqliteConnection (connectString)) {
-
 				dbConnection.Open ();
-				//making a DB command: INSERT
+				//making a DB command: DELETE
 				using (IDbCommand dbCmd = dbConnection.CreateCommand ()) {
 					for (int i = 0; i < deleteCount; i++) {
-
 						string sqlQuery = String.Format ("DELETE FROM HighScores WHERE ID = \"{0}\"", highScores[i].ID);
 						dbCmd.CommandText = sqlQuery;
 						dbCmd.ExecuteScalar ();
