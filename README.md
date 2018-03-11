@@ -11,7 +11,9 @@ Avoid or kill, just get out of there. <br>
 The score is calculated by the amount of tries you needed to get to the end. So aim for 1 attempt. <br>
 <h2> Instructions </h2>
 A&D - movement <br>
-Space - shoot <br>
+W - jump <br>
+S - crouch <br>
+Space/LMB - shoot <br>
 E - switches <br>
 C - greater vision <br>
 esc - pause menu <br>
