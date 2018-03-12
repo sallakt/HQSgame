@@ -7059,7 +7059,6 @@ MonoBehaviour:
   - {fileID: 2096425453}
   - {fileID: 182669188}
   currentCamera: {fileID: 2096425453}
-  count: 0
 --- !u!4 &458191134
 Transform:
   m_ObjectHideFlags: 0
@@ -18526,7 +18525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
+  m_ScaleFactor: 2.5
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -20933,7 +20932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
+  m_ScaleFactor: 2
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -38110,7 +38109,6 @@ MonoBehaviour:
   - {fileID: 2096425453}
   - {fileID: 182669188}
   currentCamera: {fileID: 2096425453}
-  count: 0
 --- !u!1 &2100680684
 GameObject:
   m_ObjectHideFlags: 0
