@@ -16306,7 +16306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca081ca31bba8114783ab8b35f57e03f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: HighScores
+  nextLevel: Level3
 --- !u!95 &1777473554
 Animator:
   serializedVersion: 3
