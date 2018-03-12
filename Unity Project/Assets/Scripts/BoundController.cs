@@ -21,7 +21,7 @@ public class BoundController : MonoBehaviour {
 	/// Calls the respawn player method when the collider of the object attached with this code
 	/// enters the trigger collider of another object with tag "Player"
 	/// </summary>
-	/// <param name="collider">Collider.</param>
+	/// <param name="collider">The collider of the object that enters that of this object</param>
 	void OnTriggerEnter2D(Collider2D collider)
 	{
 		if (collider.gameObject.tag == "Player") {

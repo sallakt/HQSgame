@@ -32,7 +32,9 @@ public class playerController : MonoBehaviour
     Rigidbody2D myBody;
     // Character animator component
     Animator myAni;
-    // List of collider 
+    /// <summary>
+    /// List of colliders from toggleObjects the player is touching
+    /// </summary>
     public List<Collider2D> touchingCollider = new List<Collider2D>();
 
     /// <summary>
@@ -48,7 +50,9 @@ public class playerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Character controller
+	/// Player movement controller (Keys "W" ,"A" ,"S", "D") along with any special behabiour
+	/// Player shooting ("Fire1")
+	/// Player sending message to toggleObjects ("E")
     /// </summary>
     void FixedUpdate()
     {
@@ -121,7 +125,12 @@ public class playerController : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
-
+	/// <summary>
+	/// Checks for the state of the gameObject
+	/// Set "Grouded" to true when either touching gameObjects with tag "Moving Platform" or "Ground"
+	/// Set the parent of the Player to the Moving Platform when touching colliders (moving along with the Moving Platform object)
+	/// </summary>
+	/// <param name="other">Collider of the object(s) touching that of this object</param>
     void OnCollisionEnter2D(Collision2D other)
     {
         //moving along with moving platform
@@ -139,7 +148,7 @@ public class playerController : MonoBehaviour
     /// <summary>
     /// Stop moving with the platform when not on it
     /// </summary>
-    /// <param name="other"></param>
+	/// <param name="other">Collider of the object(S) touching that of this object</param>
     void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.tag == "Moving Platform")
@@ -147,7 +156,11 @@ public class playerController : MonoBehaviour
             transform.parent = null;
         }
     }
-
+	/// <summary>
+	/// When enter the trigger collider of the object tagged "Switch", add that collider to the List
+	/// so that the player can send the message to those gameObjects
+	/// </summary>
+	/// <param name="col">Collider of the object(S) touching that of this object</param>
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "Switch")
@@ -155,7 +168,11 @@ public class playerController : MonoBehaviour
             touchingCollider.Add(col);
         }
     }
-
+	/// <summary>
+	/// When exit the trigger collider of the object tagged "Switch", remove that collider from the list
+	/// so that the message will not be sent to those gameObjects
+	/// </summary>
+	/// <param name="col">Collider of the object(S) touching that of this object</param>
     void OnTriggerExit2D(Collider2D col)
     {
         if (col.tag == "Switch")
