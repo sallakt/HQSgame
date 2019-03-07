@@ -24,4 +24,4 @@ If you decide to clone this game:
 Clone it from this repository and open it with unity. Build and run it (from the top left corner) and play game.
 <br>
 <br>
-This is a work in progress.
+Trello board of the group can be found at: https://trello.com/b/v2uqO6nm/headquarters
